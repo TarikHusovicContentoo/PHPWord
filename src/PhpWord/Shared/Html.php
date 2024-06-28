@@ -209,12 +209,12 @@ class Html
         $nodes = [
             // $method        $node   $element    $styles     $data   $argument1      $argument2
             'p' => ['Paragraph',   $node,  $element,   $styles,    null,   null,           null],
-            'h1' => ['Heading',     null,   $element,   $styles,    null,   'Heading1',     null],
-            'h2' => ['Heading',     null,   $element,   $styles,    null,   'Heading2',     null],
-            'h3' => ['Heading',     null,   $element,   $styles,    null,   'Heading3',     null],
-            'h4' => ['Heading',     null,   $element,   $styles,    null,   'Heading4',     null],
-            'h5' => ['Heading',     null,   $element,   $styles,    null,   'Heading5',     null],
-            'h6' => ['Heading',     null,   $element,   $styles,    null,   'Heading6',     null],
+            'h1' => ['Heading',     $node,   $element,   $styles,    null,   'Heading1',     null],
+            'h2' => ['Heading',     $node,   $element,   $styles,    null,   'Heading2',     null],
+            'h3' => ['Heading',     $node,   $element,   $styles,    null,   'Heading3',     null],
+            'h4' => ['Heading',     $node,   $element,   $styles,    null,   'Heading4',     null],
+            'h5' => ['Heading',     $node,   $element,   $styles,    null,   'Heading5',     null],
+            'h6' => ['Heading',     $node,   $element,   $styles,    null,   'Heading6',     null],
             '#text' => ['Text',        $node,  $element,   $styles,    null,   null,           null],
             'strong' => ['Property',    null,   null,       $styles,    null,   'bold',         true],
             'b' => ['Property',    null,   null,       $styles,    null,   'bold',         true],
@@ -349,8 +349,9 @@ class Html
      * @todo Think of a clever way of defining header styles, now it is only based on the assumption, that
      * Heading1 - Heading6 are already defined somewhere
      */
-    protected static function parseHeading(AbstractContainer $element, array &$styles, string $headingStyle): TextRun
+    protected static function parseHeading(DOMNode $node, AbstractContainer $element, array &$styles, string $headingStyle): TextRun
     {
+        self::parseInlineStyle($node, $styles['font']);
         // Create a TextRun to hold styles and text
         $styles['paragraph'] = $headingStyle;
         $textRun = new TextRun($styles['paragraph']);
