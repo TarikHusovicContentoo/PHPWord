@@ -71,12 +71,12 @@ class Html
      * Note: before 0.18.1 heading styles have been inconsistently named "HeadingX" rather than "Heading_X" - never matched global definition
      */
     public static $defaultHeadingStyles = array(
-        'Heading_1' => array('size' => 18, 'bold' => true, 'color' => '365F91', 'spaceBefore' => 240, 'spaceAfter' => 240),
-        'Heading_2' => array('size' => 16, 'bold' => true, 'color' => '4F81BD', 'spaceBefore' => 220, 'spaceAfter' => 220),
-        'Heading_3' => array('size' => 14, 'bold' => true, 'color' => '4F81BD', 'spaceBefore' => 200, 'spaceAfter' => 200),
-        'Heading_4' => array('size' => 12, 'bold' => true, 'italic' => true, 'color' => '4F81BD', 'spaceBefore' => 180, 'spaceAfter' => 180),
-        'Heading_5' => array('size' => 11, 'color' => '4F81BD', 'spaceBefore' => 150, 'spaceAfter' => 150),
-        'Heading_6' => array('size' => 10, 'color' => '4F81BD', 'spaceBefore' => 120, 'spaceAfter' => 120),
+        'Heading_1' => array('size' => 30, 'bold' => true, 'color' => '000000', 'spaceBefore' => 240, 'spaceAfter' => 240),
+        'Heading_2' => array('size' => 17, 'bold' => true, 'color' => '000000', 'spaceBefore' => 220, 'spaceAfter' => 220),
+        'Heading_3' => array('size' => 13, 'bold' => true, 'color' => '000000', 'spaceBefore' => 200, 'spaceAfter' => 200),
+        'Heading_4' => array('size' => 11, 'bold' => true, 'color' => '000000', 'spaceBefore' => 180, 'spaceAfter' => 180),
+        'Heading_5' => array('size' => 10, 'color' => '000000', 'spaceBefore' => 150, 'spaceAfter' => 150),
+        'Heading_6' => array('size' => 9, 'color' => '000000', 'spaceBefore' => 120, 'spaceAfter' => 120),
     );
 
     /**
