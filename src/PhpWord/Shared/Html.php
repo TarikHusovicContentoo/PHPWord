@@ -452,9 +452,16 @@ class Html
                 $depth = (int) substr($argument1, -1, 1); // 1 .. 6 (Heading_1..6) or 0 (Title)
                 $word->addTitleStyle($depth, $fontStyle, $parStyle); // ignored if style for $depth already exists
 
-                // depending on determined depth, HeadingX (depth 1..6) or Title (dept 0) will be added
-                // note: Title wont't create heading in sidebar
-                $newElement = $section->addTitle($node->nodeValue, $depth);
+                if ($section) {
+                    // depending on determined depth, HeadingX (depth 1..6) or Title (dept 0) will be added
+                    // note: Title wont't create heading in sidebar
+                    $newElement = $section->addTitle($node->nodeValue, $depth);
+                } else {
+                    // retain BC compatability - Heading1, Heading2, .. assuming style already defined for versions <= 0.18.1
+                    $styles['paragraph'] = $argument1;
+                    // note: TextRun does not support controlling font properties
+                    $newElement = $element->addTextRun($styles['paragraph']);
+                }
             }
         }
 
